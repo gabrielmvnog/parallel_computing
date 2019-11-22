@@ -6,16 +6,16 @@
 int main() { 
 	FILE *fp;
 	int n_threads, found = 0;
-	char filename[256] = "test.txt", w2f[256];
+	char filename[256] = "large-file", w2f[256];
+
+	printf("Entre com a string a ser procurada: ");
+	scanf("%[^\n]", w2f);
 
 	printf("Entre com o numero de threads: ");
 	scanf("%d", &n_threads);
 
 	// printf("Entre com o caminho do arquivo: ");
 	// scanf("%s", filename);	
-
-	printf("Entre com a palavra a ser procurada: ");
-	scanf("%s", w2f);
 
 	int window = strlen(w2f);
 
@@ -77,9 +77,9 @@ int main() {
 	double end_time = omp_get_wtime() - start_time;
 
 	if (found == 1) {
-		printf("-> Palavra %s encontrada!\n", w2f);
+		printf("-> String '%s' encontrada!\n", w2f);
 	} else {
-		printf("-> Palavra não encontrada!\n");
+		printf("-> String não encontrada !!!\n");
 	}
 
 	printf("\n");
